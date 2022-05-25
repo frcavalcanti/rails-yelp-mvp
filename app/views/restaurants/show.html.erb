@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="inner-container">
+    <h2 class="h2-show"><%= @restaurant.name %></h2>
+    <p class="info"><%= @restaurant.address %></p>
+    <p class="info"><%= @restaurant.phone_number %></p>
+    <p class="info"><%= @restaurant.category %></p>
+
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %> / <%= review.rating.to_f %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="button-container">
+    <p> <%= link_to "Back to start", restaurants_path, :class => "a-button"  %> </p>
+    <p> <%= link_to "Review Restaurant", new_restaurant_review_path(@restaurant), :class => "a-button"  %> </p>
+  </div>
+</div>
